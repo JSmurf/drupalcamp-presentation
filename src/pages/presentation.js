@@ -6,21 +6,12 @@ const PresentationPage = ( {data} ) => {
 	const edges = data.allNodeSlide.edges;
 return(
 	<Deck>
-		<Slide>
-			<Heading>This is a slide</Heading>
-			<Text>This is some text</Text>
-			<Notes>These are some notes</Notes>
-		</Slide>
 		{edges.map(edge => (
 			<Slide key={edge.node.field_position}>
-				<Text>{ edge.node.body.processed }</Text>
+				<Text><div dangerouslySetInnerHTML={{__html: edge.node.body.processed}} /></Text>
 				<Notes>{ edge.node.field_notes.processed	}</Notes>
 			</Slide>
 		))}
-		<Slide>
-			<Text><div dangerouslySetInnerHTML={{__html: edges[0].node.body.processed}} /></Text>
-			<Notes><div dangerouslySetInnerHTML={{ __html: edges[0].node.field_notes.processed}} /></Notes>
-		</Slide>
 	</Deck>
 )
 }
