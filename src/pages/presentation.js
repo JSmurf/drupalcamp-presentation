@@ -21,22 +21,22 @@ export default PresentationPage;
 export const query = graphql`
 query
 {
-		allNodeSlide(sort: {fields: field_position}) {
-		  edges {
-			node {
-			  body {
-				processed
-			  }
-			  id
-			  title
-			  field_notes {
-				processed
-			  }
-			  field_position
-			}
+	allNodeSlide {
+	  edges {
+		node {
+		  title
+		  id
+		  body {
+			processed
+		  }
+		  field_notes {
+			processed
 		  }
 		}
-}
+	  }
+	}
+  }
+  
 `
 
 /**
