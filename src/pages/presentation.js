@@ -1,13 +1,13 @@
-import React from "react"
+import React from "react";
 import { Helmet } from 'react-helmet';
 
 const PresentationPage = () => (
 	<>
 	<Helmet>
 		<title>This is a test</title>
-		<link rel="stylesheet" href={"reveal.css"} />
-		<link rel="stylesheet" href={"white.css"} />
-		<script src={"reveal.js"}></script>
+		<link rel="stylesheet" href="/reveal.css" />
+		<link rel="stylesheet" href="/white.css" />
+		<script src="/reveal.js"></script>
 	</Helmet>
 	<div className="reveal" id="reveal">
 			<div className="slides">
