@@ -18,7 +18,7 @@ const PresentationPage = ( {data} ) => {
 		{edges.map(edge => (
 			<section key={edge.node.field_position}>
 				<div dangerouslySetInnerHTML={{__html: edge.node.body.processed}} />
-				<aside className="notes">{ edge.node.field_notes[0].processed }</aside>
+				<aside className="notes"><div dangerouslySetInnerHTML={{ __html: edge.node.field_notes[0].processed }} /> </aside>
 			</section>
 		))}
 			</div>
