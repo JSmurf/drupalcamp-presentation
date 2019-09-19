@@ -8,17 +8,24 @@ const PresentationPage = ( {data} ) => {
 	return(
 	<>
 	<Helmet>
-		<title>This is a test</title>
+		<title>Cornell DrupalCamp 2019 Presentation</title>
 		<link rel="stylesheet" href="/reveal.css" />
-		<link rel="stylesheet" href="/white.css" />
+		<link rel="stylesheet" href="/moon.css" />
 		<script src="/reveal.js"></script>
 	</Helmet>
 	<div className="reveal" id="reveal">
 			<div className="slides">
 		{edges.map(edge => (
 			<section key={edge.node.field_position}>
-				<div dangerouslySetInnerHTML={{__html: edge.node.body.processed}} />
-				<aside className="notes"><div dangerouslySetInnerHTML={{ __html: edge.node.field_notes[0].processed }} /> </aside>
+				{edge.node.body.map(body => (
+					<section>
+				<div dangerouslySetInnerHTML={{__html: body.processed}} />
+					</section>
+				))}
+				<aside className="notes"><div dangerouslySetInnerHTML={{ __html: edge.node.field_notes ? edge.node.field_notes.processed : '' }} /> </aside>
+<section>
+	<h2>Second Slide Test</h2>
+</section>
 			</section>
 		))}
 			</div>
