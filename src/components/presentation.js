@@ -15,31 +15,9 @@ return(
 	</Deck>
 )
 }
-
+/*
 export default PresentationPage;
 
-export const query = graphql`
-query
-{
-	allNodeSlide {
-	  edges {
-		node {
-		  title
-		  id
-		  body {
-			processed
-		  }
-		  field_notes {
-			processed
-		  }
-		}
-	  }
-	}
-  }
-  
-`
-
-/**
 			{ edges.map(edge => (
 				<Slide id={edge.node.id}>
 				<Notes>
