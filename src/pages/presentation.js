@@ -1,8 +1,10 @@
 import React from "react";
+import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 const PresentationPage = ( {data} ) => {
 	const edges = data.allNodeSlide.edges;
+	console.log(edges)
 	return(
 	<>
 	<Helmet>
@@ -16,7 +18,7 @@ const PresentationPage = ( {data} ) => {
 		{edges.map(edge => (
 			<section key={edge.node.field_position}>
 				<div dangerouslySetInnerHTML={{__html: edge.node.body.processed}} />
-				<aside className="notes">{ edge.node.field_notes.processed	}</aside>
+				<aside className="notes">{ edge.node.field_notes[0].processed }</aside>
 			</section>
 		))}
 			</div>
@@ -32,7 +34,6 @@ query
 	allNodeSlide {
 	  edges {
 		node {
-		  title
 		  id
 		  body {
 			processed
@@ -40,6 +41,9 @@ query
 		  field_notes {
 			processed
 		  }
+		}
+		previous {
+		  id
 		}
 	  }
 	}
