@@ -13,6 +13,7 @@ const IndexPage = () => (
     <p>View the <Link to="/umami">Umami Site</Link></p>
     <p>View the <Link to="/drupalcamp">DrupalCamp Presentation</Link></p>
     <p>View the <Link to="/ithacawebpeople">Ithaca Web People Presentation</Link></p>
+    <p>View the <a href="https://github.com/JSmurf/drupalcamp-presentation">GitHub Repo</a></p>
   </Layout>
 )
 
