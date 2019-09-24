@@ -3,7 +3,10 @@ import React from "react"
 
 const Footer = () => {
 	return(
-		<footer style={{background: 'grey',}}>
+		<footer style={{
+			background: 'white',
+			padding: '1em',
+		}}>
 			<p>
 			<strong>Umami Magazine & Umami Publications</strong> is a
                 fictional magazine and publisher for illustrative purposes only

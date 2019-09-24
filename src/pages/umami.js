@@ -1,8 +1,10 @@
 import React from "react";
-import { FeaturedRecipe } from "../components/featuredrecipe";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
+import Card from "../components/card";
+
+import "../components/card.css"
 
 const UmamiPage = ( {data} ) => {
 	const articles = data.allNodeArticle.nodes;
@@ -10,16 +12,17 @@ const UmamiPage = ( {data} ) => {
 	return(
 		<div>
 			<Layout>
-			<h1>This is a test</h1>
-			<FeaturedRecipe title="test" description="This is a description that I am testing"/>
+			<h1>Umami</h1>
 			<h2>Articles:</h2>
+			<div className="card-holder">
 			{articles.map(article => (
-				<p key={article.id}><Link to={"/umami" + article.path.alias}>{article.title}</Link></p>
-			))}
+				<Card title={article.title} path={"/umami" + article.path.alias} imageData={article.relationships.field_image.localFile.childImageSharp.fluid} imageAlt={article.field_image.alt} />
+			))}</div>
 			<h2>Recipes:</h2>
+			<div className="card-holder">
 			{recipes.map(recipe => (
-				<p key={recipe.id}><Link to={"/umami" + recipe.path.alias}>{recipe.title}</Link></p>
-			))}
+				<Card title={recipe.title} path={"/umami" + recipe.path.alias} imageData={recipe.relationships.field_image.localFile.childImageSharp.fluid} imageAlt={recipe.field_image.alt} />
+			))}</div>
 			</Layout>
 		</div>
 	)
@@ -36,6 +39,20 @@ query  {
 		  path {
 			alias
 		  }
+		  field_image {
+			  alt
+		  }
+		  relationships {
+			  field_image {
+				  localFile {
+					  childImageSharp {
+						  fluid {
+							  ...GatsbyImageSharpFluid
+						  }
+					  }
+				  }
+			  }
+		  }
 		}
 	  }
 	  allNodeRecipe {
@@ -44,6 +61,23 @@ query  {
 		  title
 		  path {
 			alias
+		  }
+		  field_summary {
+			  processed
+		  }
+		  field_image {
+			  alt
+		  }
+		  relationships {
+			  field_image {
+				  localFile {
+					  childImageSharp {
+						  fluid {
+							  ...GatsbyImageSharpFluid
+						  }
+					  }
+				  }
+			  }
 		  }
 		}
 	  }
