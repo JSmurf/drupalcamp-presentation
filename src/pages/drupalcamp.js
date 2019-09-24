@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 
 const PresentationPage = ( {data} ) => {
 	const edges = data.allNodeSlide.edges;
-	console.log(edges)
 	return(
 	<>
 	<Helmet>

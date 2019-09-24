@@ -3,8 +3,8 @@ import React from "react";
 export const FeaturedRecipe = props => {
 	return(
 		<div>
-			<p>Title</p>
-			<p>Description</p>
+			<p>{props.title}</p>
+			<p>{props.description}</p>
 		</div>
 	)
 }
