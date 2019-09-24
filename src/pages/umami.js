@@ -2,15 +2,14 @@ import React from "react";
 import { FeaturedRecipe } from "../components/featuredrecipe";
 import { graphql, Link } from "gatsby";
 
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Layout from "../components/layout";
 
 const UmamiPage = ( {data} ) => {
 	const articles = data.allNodeArticle.nodes;
 	const recipes = data.allNodeRecipe.nodes;
 	return(
 		<div>
-			<Header />
+			<Layout>
 			<h1>This is a test</h1>
 			<FeaturedRecipe title="test" description="This is a description that I am testing"/>
 			<h2>Articles:</h2>
@@ -21,7 +20,7 @@ const UmamiPage = ( {data} ) => {
 			{recipes.map(recipe => (
 				<p key={recipe.id}><Link to={"/umami" + recipe.path.alias}>{recipe.title}</Link></p>
 			))}
-			<Footer />
+			</Layout>
 		</div>
 	)
 }
