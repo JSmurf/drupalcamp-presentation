@@ -1,18 +1,18 @@
 import React from 'react';
-import Layout from '../../components/layout';
+import UmamiLayout from '../../components/umamilayout';
 import { graphql } from "gatsby";
 import Card from "../../components/card";
 
 const RecipesPage = ({data}) => {
 	const recipes = data.allNodeRecipe.nodes;
 	return(
-	<Layout>
+	<UmamiLayout>
 		<h1>Recipes</h1>
 			<div className="card-holder">
 			{recipes.map(recipe => (
 				<Card title={recipe.title} path={"/umami" + recipe.path.alias} imageData={recipe.relationships.field_image.localFile.childImageSharp.fluid} imageAlt={recipe.field_image.alt} />
 			))}</div>
-	</Layout>
+	</UmamiLayout>
 )}
 
 export default RecipesPage;

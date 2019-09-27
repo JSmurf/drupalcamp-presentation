@@ -7,7 +7,7 @@ import "./header.css"
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
+      background: (siteTitle === 'Umami' ? '#da3c13' : `rebeccapurple`),
       marginBottom: `1.45rem`,
     }}
   >

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'gatsby-image';
 import { Helmet } from 'react-helmet';
 
-import Layout from "../components/layout";
+import UmamiLayout from "../components/umamilayout";
 
 import "./recipe.css"
 
@@ -11,7 +11,7 @@ const Recipe = ({ title, difficulty, ingredients, servings, prepTime, cookTime, 
 		<Helmet>
 			<title>{title + " - Umami"}</title>
 		</Helmet>
-		<Layout>
+		<UmamiLayout>
 		<h1>{title}</h1>
 		<div dangerouslySetInnerHTML={{__html: summary}} />
 		<Image fluid={imageData} alt={imageAlt} />
@@ -25,7 +25,7 @@ const Recipe = ({ title, difficulty, ingredients, servings, prepTime, cookTime, 
 		))}
 		</ul>
 		<div dangerouslySetInnerHTML={{__html: instructions}} />
-		</Layout>
+		</UmamiLayout>
 	</article>
 )
 

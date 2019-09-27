@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../components/layout";
+import UmamiLayout from "../components/umamilayout";
 import Card from "../components/card";
 
 import "../components/card.css"
@@ -11,7 +11,7 @@ const UmamiPage = ( {data} ) => {
 	const recipes = data.allNodeRecipe.nodes;
 	return(
 		<div>
-			<Layout>
+			<UmamiLayout>
 			<h1>Umami</h1>
 			<h2>Articles:</h2>
 			<div className="card-holder">
@@ -23,7 +23,7 @@ const UmamiPage = ( {data} ) => {
 			{recipes.map(recipe => (
 				<Card title={recipe.title} path={"/umami" + recipe.path.alias} imageData={recipe.relationships.field_image.localFile.childImageSharp.fluid} imageAlt={recipe.field_image.alt} />
 			))}</div>
-			</Layout>
+			</UmamiLayout>
 		</div>
 	)
 }

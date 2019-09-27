@@ -10,6 +10,7 @@ const PresentationPage = ( {data} ) => {
 		<title>Cornell DrupalCamp 2019 Presentation</title>
 		<link rel="stylesheet" href="/reveal.css" />
 		<link rel="stylesheet" href="/moon.css" />
+		<link rel="stylesheet" href="/lib/css/zenburn.css" />
 		<script src="/reveal.js"></script>
 	</Helmet>
 	<div className="reveal" id="reveal">
@@ -34,7 +35,7 @@ export default PresentationPage;
 export const query = graphql`
 query
 {
-	allNodeSlide(filter: {relationships: {field_deck: {elemMatch: {name: {eq: "DrupalCamp"}}}}}) {
+	allNodeSlide(filter: {relationships: {field_deck: {elemMatch: {name: {eq: "DrupalCamp"}}}}}, sort: {fields: field_position}) {
 	  edges {
 		node {
 		  id
@@ -51,4 +52,5 @@ query
 	  }
 	}
   }
+  
 `
